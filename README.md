@@ -1,3 +1,9 @@
+# Disclaimer
+Branch used for the `HH->bbtautau` analysis and based on the official branch `release_2018Mar20`.
+Two main updates:
+ - Uncommented lines in destructor to prevent memory leaking in src/svFitHistogramAdapter.cc
+ - Updated the 'roundToNdigits' function in src/svFitAuxFunctions.cc
+
 # ClassicSVfit
 Latest version of SVfit_standalone algorithm
 
