@@ -328,12 +328,10 @@ HistogramAdapter::HistogramAdapter(std::vector<SVfitQuantity*> const& quantities
 
 HistogramAdapter::~HistogramAdapter()
 {
-  /*
   for (std::vector<SVfitQuantity*>::iterator quantity = quantities_.begin(); quantity != quantities_.end(); ++quantity)
   {
     delete *quantity;
   }
-  */
 }
 
 void HistogramAdapter::setMeasurement(const LorentzVector& vis1P4, const LorentzVector& vis2P4, const Vector& met)
