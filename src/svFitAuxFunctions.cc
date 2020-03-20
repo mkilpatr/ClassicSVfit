@@ -9,13 +9,11 @@ namespace classic_svFit
 
 double roundToNdigits(double x, int n)
 {
-  double tmp = TMath::Power(10., n);
-  if ( x != 0. ) {
-    tmp /= TMath::Power(10., TMath::Floor(TMath::Log10(TMath::Abs(x))));
-  }
-  double x_rounded = TMath::Nint(x*tmp)/tmp;
-  //std::cout << "<roundToNdigits>: x = " << x << ", x_rounded = " << x_rounded << std::endl;
-  return x_rounded;
+    if(x == 0.)
+        return 0.;
+    const int p = std::min<int>(n, n - std::ceil(std::log10(std::abs(x))));
+    const double scale = std::pow(10., p);
+    return std::floor(x * scale + 0.5) / scale;
 }
 
 TGraphErrors* makeGraph(const std::string& graphName, const std::vector<GraphPoint>& graphPoints)
