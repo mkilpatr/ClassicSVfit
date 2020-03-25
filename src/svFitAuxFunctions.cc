@@ -13,7 +13,12 @@ double roundToNdigits(double x, int n)
         return 0.;
     const int p = std::min<int>(n, n - std::ceil(std::log10(std::abs(x))));
     const double scale = std::pow(10., p);
-    return std::floor(x * scale + 0.5) / scale;
+    const double rounded = std::floor(x * scale + 0.5) / scale;
+    const double rounded_up = std::floor(x * scale + 0.6) / scale;
+    const double rounded_down = std::floor(x * scale + 0.4) / scale;
+    if(rounded != rounded_up || rounded != rounded_down)
+        return (std::floor(x * scale) + 0.5) / scale;
+    return rounded;
 }
 
 TGraphErrors* makeGraph(const std::string& graphName, const std::vector<GraphPoint>& graphPoints)
