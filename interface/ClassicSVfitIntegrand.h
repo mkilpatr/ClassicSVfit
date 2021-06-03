@@ -92,6 +92,9 @@ namespace classic_svFit
 
     int getMETComponentsSize() const;
 
+    /// getNu 4 vector
+    LorentzVector getNu(int which = 0);
+
     /// static pointer to this (needed for interfacing the likelihood function calls to Markov Chain integration)
     static const ClassicSVfitIntegrand* gSVfitIntegrand;
 

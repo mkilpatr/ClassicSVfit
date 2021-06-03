@@ -52,7 +52,6 @@ ClassicSVfitIntegrand::~ClassicSVfitIntegrand()
   delete addLogM_dynamic_formula_;
 }
 
-
 void ClassicSVfitIntegrand::setVerbosity(int aVerbosity){ verbosity_ = aVerbosity;}
 
 void ClassicSVfitIntegrand::addLogM_fixed(bool value, double power)
@@ -238,6 +237,13 @@ void ClassicSVfitIntegrand::addMETEstimate(double measuredMETx, double measuredM
 }
 
 int ClassicSVfitIntegrand::getMETComponentsSize() const {return measuredMETx_.size();}
+
+LorentzVector ClassicSVfitIntegrand::getNu(int which) {
+  LorentzVector nu;
+  if (which == 0) nu = nu1P4_;
+  else if (which == 1) nu = nu2P4_;
+  return nu;
+}
 
 void ClassicSVfitIntegrand::clearMET(){
   measuredMETx_.clear();

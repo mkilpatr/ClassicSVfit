@@ -58,6 +58,14 @@ void ClassicSVfit::setVerbosity(int aVerbosity) {
 
 }
 
+void ClassicSVfit::getNu(int which, double& nuPx, double& nuPy, double& nuPz, double& nuE){
+        LorentzVector nu_ = integrand_->getNu(which);
+        nuPx = nu_.px();
+        nuPy = nu_.py();
+        nuPz = nu_.pz();
+        nuE  = nu_.E();
+}
+
 void ClassicSVfit::addLogM_fixed(bool value, double power)
 {
         integrand_->addLogM_fixed(value, power);

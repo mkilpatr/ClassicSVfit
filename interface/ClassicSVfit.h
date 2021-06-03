@@ -80,6 +80,8 @@ bool isValidSolution() const;
 double getComputingTime_cpu() const;
 double getComputingTime_real() const;
 
+void getNu(int which, double& nuPx, double& nuPy, double& nuPz, double& nuE);
+
 protected:
 
 ///flag for choosing the integrator class
